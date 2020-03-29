@@ -10,6 +10,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>ad-service</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>ad-common</module>
+    </modules>
 
 
 </project>
