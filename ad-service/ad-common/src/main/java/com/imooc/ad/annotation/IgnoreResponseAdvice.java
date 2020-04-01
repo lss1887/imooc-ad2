@@ -8,6 +8,7 @@ import java.lang.annotation.Target;
 /**
  * Created by linshisheng on 2020/04/01.
  */
+
 //标注于类 方法上
 @Target({ElementType.TYPE,ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
