@@ -5,6 +5,7 @@ import com.imooc.ad.dao.AdUserRepository;
 import com.imooc.ad.entity.AdUser;
 import com.imooc.ad.exception.AdException;
 import com.imooc.ad.service.IUserService;
+import com.imooc.ad.utils.CommonUtils;
 import com.imooc.ad.vo.CreateUserRequest;
 import com.imooc.ad.vo.CreateUserResponse;
 import lombok.extern.slf4j.Slf4j;
@@ -26,6 +27,7 @@ public class UserServiceImpl implements IUserService {
         if(oldUsername != null){
             throw new AdException(Constants.ErrorMsg.SAME_NAME_ERROR);
         }
-        return null;
+        AdUser newUser = userRepository.save(new AdUser(request.getUsername(), CommonUtils.md5(request.getUsername())));
+        return new CreateUserResponse(newUser.getId(),newUser.getUsername(),newUser.getToken(),newUser.getCreateTime(),newUser.getUpdateTime());
     }
 }
