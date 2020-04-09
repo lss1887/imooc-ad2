@@ -8,6 +8,7 @@ import com.imooc.ad.entity.AdUser;
 import com.imooc.ad.exception.AdException;
 import com.imooc.ad.service.IAdPlanService;
 import com.imooc.ad.service.IUserService;
+import com.imooc.ad.utils.CommonUtils;
 import com.imooc.ad.vo.AdPlanGetRequest;
 import com.imooc.ad.vo.AdPlanRequest;
 import com.imooc.ad.vo.AdPlanResponse;
@@ -38,7 +39,13 @@ public class AdPlanServiceImpl implements IAdPlanService {
             throw new AdException(Constants.ErrorMsg.CAN_NOT_FIND_RECORD);
         }
         AdPlan oldPlan = planRepository.findByUserIdAndPlanName(request.getUserId(),request.getPlanName());
-        return null;
+        if(oldPlan != null){
+            throw new AdException(Constants.ErrorMsg.SAME_NAME_PLAN_ERROR);
+        }
+        AdPlan newAdPlan = planRepository.save(
+                new AdPlan(request.getUserId(),request.getPlanName(), CommonUtils.parseStringDate(request.getStartDate()),CommonUtils.parseStringDate(request.getEndDate()))
+        );
+        return new AdPlanResponse(newAdPlan.getId(),newAdPlan.getPlanName());
     }
 
     @Override
