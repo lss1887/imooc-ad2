@@ -8,6 +8,6 @@ import java.util.List;
 public interface AdPlanRepository  extends JpaRepository<AdPlan,Long> {
     AdPlan findByIdAndUserId(Long id,Long userId);
     List<AdPlan> findAllByIdAndUserId(List<Long> ids,Long userId);
-    AdPlan findByUserIdAndPlanName(Long userId,Long planName);
+    AdPlan findByUserIdAndPlanName(Long userId,String planName);
     List<AdPlan> findAllByPlanStatus(Integer status);
 }
