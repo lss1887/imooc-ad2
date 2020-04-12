@@ -8,19 +8,20 @@ import com.imooc.ad.entity.AdPlan;
 import com.imooc.ad.entity.AdUser;
 import com.imooc.ad.exception.AdException;
 import com.imooc.ad.service.IAdPlanService;
-import com.imooc.ad.service.IUserService;
 import com.imooc.ad.utils.CommonUtils;
 import com.imooc.ad.vo.AdPlanGetRequest;
 import com.imooc.ad.vo.AdPlanRequest;
 import com.imooc.ad.vo.AdPlanResponse;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class AdPlanServiceImpl implements IAdPlanService {
 
     @Autowired

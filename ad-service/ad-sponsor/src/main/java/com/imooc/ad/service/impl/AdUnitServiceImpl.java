@@ -15,11 +15,13 @@ import com.imooc.ad.exception.AdException;
 import com.imooc.ad.service.IAdUnitService;
 import com.imooc.ad.vo.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
+@Service
 public class AdUnitServiceImpl implements IAdUnitService {
 
     @Autowired

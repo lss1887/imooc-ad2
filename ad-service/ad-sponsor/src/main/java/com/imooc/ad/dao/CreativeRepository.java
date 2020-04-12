@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 /**
  * jpa比mybatis查询效率低
  * */
-public interface CreaticeRepository  extends JpaRepository<Creative,Long> {
+public interface CreativeRepository extends JpaRepository<Creative,Long> {
 }
