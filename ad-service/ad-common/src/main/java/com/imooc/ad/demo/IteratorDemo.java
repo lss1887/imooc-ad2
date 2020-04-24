@@ -1,4 +1,4 @@
-package com.imooc.ad.Demo;
+package com.imooc.ad.demo;
 
 import java.util.Collection;
 import java.util.Iterator;
