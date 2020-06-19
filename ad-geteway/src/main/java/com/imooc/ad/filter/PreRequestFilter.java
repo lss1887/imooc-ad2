@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
  * 访问日志过滤器
  */
 @Slf4j
+//javaBean注册到容器中
 @Component
 public class PreRequestFilter extends ZuulFilter {
 

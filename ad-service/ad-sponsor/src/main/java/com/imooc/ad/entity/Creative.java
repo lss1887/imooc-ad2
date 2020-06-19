@@ -9,7 +9,8 @@ import java.util.Date;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor@Entity
+@AllArgsConstructor
+@Entity
 @Table(name = "creative")
 public class Creative {
     @Id

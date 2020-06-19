@@ -19,7 +19,7 @@ public class UserServiceImpl implements IUserService {
     private AdUserRepository userRepository;
 
     @Override
-    public CreateUserResponse ceateteUser(CreateUserRequest request) throws AdException {
+    public CreateUserResponse createUser(CreateUserRequest request) throws AdException {
         if(request.validate()){
             throw new AdException(Constants.ErrorMsg.REQUEST_PARAM_ERROR);
         }

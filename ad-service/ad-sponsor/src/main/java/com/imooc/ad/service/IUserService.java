@@ -6,5 +6,6 @@ import com.imooc.ad.vo.CreateUserResponse;
 
 public interface IUserService {
 
-    CreateUserResponse ceateteUser(CreateUserRequest request)throws AdException;
+    CreateUserResponse createUser(CreateUserRequest request)throws AdException;
+
 }
