@@ -11,6 +11,8 @@
         <module>ad-eureka</module>
         <module>ad-geteway</module>
         <module>ad-service</module>
+        <module>ad-webMagic</module>
+        <module>ad-thread</module>
     </modules>
     <packaging>pom</packaging>
 
