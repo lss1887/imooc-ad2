@@ -30,7 +30,7 @@ public class SearchApplication {
         SpringApplication.run(SearchApplication.class,args);
     }
 
-    //    轮询负载均衡
+    //    轮询负载均衡 ribbon使用到的客户端
     @Bean
     @LoadBalanced
     RestTemplate restTemplate(){

@@ -33,7 +33,6 @@ public class SearchController {
     @PostMapping("/getAdPlansByRibbon")
     public CommonResponse<List<AdPlan>> getAdPlanByRebbon(@RequestBody AdPlanRequest request){
         log.info("ad-search: getAdPlansByRibbon ====> {}", JSON.toJSONString(request));
-
         return restTemplate.postForEntity("http://euraka-client-ad-sponsor/ad-sponsor/ad-sponsor/get/adPlan",request,CommonResponse.class).getBody();
     }
 
