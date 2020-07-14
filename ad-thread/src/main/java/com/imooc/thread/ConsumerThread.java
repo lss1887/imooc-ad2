@@ -12,10 +12,10 @@ public class ConsumerThread extends Thread {
     public void run() {
         int count = 0;
         while (true){
-            synchronized (this){
+            synchronized (c){
                 if(c.isFlag() == true){
                     try {
-                        this.wait();
+                        c.wait();
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -24,7 +24,7 @@ public class ConsumerThread extends Thread {
                     count ++;
                     c.setFlag(true);
                     System.out.println("completely");
-                    this.notify();
+                    c.notify();
                 }
             }
         }

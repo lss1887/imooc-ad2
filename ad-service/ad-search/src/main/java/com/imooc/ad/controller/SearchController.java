@@ -2,6 +2,7 @@
 
 import com.alibaba.fastjson.JSON;
 import com.imooc.ad.annotation.IgnoreResponseAdvice;
+import com.imooc.ad.client.SponsorClient;
 import com.imooc.ad.client.vo.AdPlan;
 import com.imooc.ad.client.vo.AdPlanRequest;
 import com.imooc.ad.vo.CommonResponse;
@@ -24,6 +25,9 @@ public class SearchController {
     @Autowired
     private RestTemplate restTemplate;
 
+    @Autowired
+    private SponsorClient sponsorClient;
+
     @SuppressWarnings("all")
     @IgnoreResponseAdvice
     @PostMapping("/getAdPlansByRibbon")
@@ -32,5 +36,14 @@ public class SearchController {
 
         return restTemplate.postForEntity("http://euraka-client-ad-sponsor/ad-sponsor/ad-sponsor/get/adPlan",request,CommonResponse.class).getBody();
     }
+
+    @IgnoreResponseAdvice
+    @PostMapping("/getAdPlans")
+    public  CommonResponse<List<AdPlan>> getAdPlans(@RequestBody AdPlanRequest request){
+        log.info("ad-search : getAdPlans -> :{}",JSON.toJSONString(request));
+        return sponsorClient.getAdplans(request);
+    }
+
+    //如果其他的服务下线调用的微服务报错 可能导致雪崩 用断路器
 
 }

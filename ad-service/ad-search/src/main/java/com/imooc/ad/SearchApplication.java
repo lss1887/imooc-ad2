@@ -35,6 +35,5 @@ public class SearchApplication {
     @LoadBalanced
     RestTemplate restTemplate(){
         return  new RestTemplate();
-
     }
 }

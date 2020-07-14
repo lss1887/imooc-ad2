@@ -11,17 +11,17 @@ public class Producer  extends  Thread{
     @Override
     public void  run(){
         while (true){
-            synchronized (this){
+            synchronized (c){
                 if(c.isFlag() == false){
                     try {
-                        this.wait();
+                        c.wait();
                     }catch (Exception e){
                         e.printStackTrace();
                     }
                 }
                 System.out.println("Consuming");
                 c.setFlag(false);
-                this.notify();
+                c.notify();
             }
         }
     }
