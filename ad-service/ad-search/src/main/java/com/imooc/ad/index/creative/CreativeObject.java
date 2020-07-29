@@ -1,4 +1,4 @@
-package com.imooc.ad.creative;
+package com.imooc.ad.index.creative;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

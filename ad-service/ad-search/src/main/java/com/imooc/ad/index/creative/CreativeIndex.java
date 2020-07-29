@@ -1,4 +1,4 @@
-package com.imooc.ad.creative;
+package com.imooc.ad.index.creative;
 
 import com.imooc.ad.index.IndexAware;
 import lombok.extern.slf4j.Slf4j;

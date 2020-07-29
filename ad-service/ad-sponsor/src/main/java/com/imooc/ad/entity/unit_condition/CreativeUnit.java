@@ -16,4 +16,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "creative_unit")
 public class CreativeUnit {
+
+    private Long creativeId;
+    private Long unitId;
 }
