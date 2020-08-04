@@ -24,6 +24,8 @@ public class IndexFileLoader {
      */
     @PostConstruct
     public  void init(){
+
+        //加载的顺序
         List<String> adPlanStrings = loadDumpData(String.format("%s%s", DConstant.DATA_ROOT_DIR, DConstant.AD_PLAN));
         adPlanStrings.forEach(p -> AdLevelDataHandler.handleLeverl2(JSON.parseObject(p, AdPlanTable.class), OpType.ADD));
 
