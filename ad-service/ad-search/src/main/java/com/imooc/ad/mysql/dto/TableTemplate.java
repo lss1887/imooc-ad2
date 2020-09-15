@@ -15,9 +15,10 @@ import java.util.Map;
 public class TableTemplate {
     private String tableName;
     private String level;
+    //操作类型 多个列
     private Map<OpType, List<String>> opTypeFileldSetMap = new HashMap<>();
     /**
-     * 字段缩影的 -> 字段名
+     * 字段索引 -> 字段名
      */
     private Map<Integer, String> posMap = new HashMap<>();
 }

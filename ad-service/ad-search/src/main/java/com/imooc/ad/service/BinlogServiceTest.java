@@ -17,6 +17,10 @@ public class BinlogServiceTest {
                 "root",
                 "root"
         );
+//        设定读取binlog 的文件 和位置 那么 client 将从这个位置开始监听 否则 client 会从 “头”开始读取 Binlog 文件 并监听
+//        client.setBinlogFilename("binlog.000037");
+////        client.setBinlogPosition();
+//         includedColumns={0, 1, 2} 将列索引映射为 对应的字段
         client.registerEventListener(event -> {
             EventData data = event.getData();
             if(data instanceof UpdateRowsEventData){

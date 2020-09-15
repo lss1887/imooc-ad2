@@ -13,6 +13,7 @@
         <module>ad-service</module>
         <module>ad-webMagic</module>
         <module>ad-thread</module>
+        <module>ad-demo</module>
     </modules>
     <packaging>pom</packaging>
 

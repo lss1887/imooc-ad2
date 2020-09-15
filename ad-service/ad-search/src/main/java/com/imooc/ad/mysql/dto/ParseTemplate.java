@@ -9,10 +9,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Supplier;
 
+/**
+ * 对模板文件的解析
+ */
 @Data
 public class ParseTemplate {
 
     private String database;
+    //database
     private Map<String,TableTemplate> tableTemplateMap = new HashMap<>();
 
     public  static ParseTemplate parse(Template template){
