@@ -23,16 +23,17 @@ public class TemplateHolder {
     private ParseTemplate template;
     private  JdbcTemplate jdbcTemplate;
     private  static  final String SQL_SCHEMA = "select table_schema,table_name,column_name,ordinal_position from information_schema.COLUMNS WHERE table_schema = ? and table_name = ?";
+    private  static  final  String  TEMPLATE_JSON= "template.json";
 
     public TableTemplate getTable(String tableName){
         return  template.getTableTemplateMap().get(tableName);
     }
     /**
-     * TemplateHolder 加载时容器会自动执行
+     * TemplateHolder 加载时srping容器会自动执行
      */
     @PostConstruct
     private void init (){
-        loadJson("template.json");
+        loadJson(TEMPLATE_JSON);
     }
     /**
      * 加载配置文件
@@ -52,7 +53,10 @@ public class TemplateHolder {
         }
 
     }
-    //                    索引到列名的映射
+
+    /**
+     *  索引到列名的映射
+     */
     private  void loadMeta(){
         for (Map.Entry<String, TableTemplate> entry : template.getTableTemplateMap().entrySet()) {
             TableTemplate table = entry.getValue();

@@ -1,10 +1,12 @@
 package com.oppo.demo.entity;
 
 import lombok.Data;
+import lombok.ToString;
 
 import java.util.List;
 
 @Data
+@ToString
 public class MarkTemplateEntity {
     private Integer adId;
     private Integer ownerId;
