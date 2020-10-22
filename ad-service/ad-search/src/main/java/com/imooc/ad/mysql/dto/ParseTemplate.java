@@ -16,7 +16,7 @@ import java.util.function.Supplier;
 public class ParseTemplate {
 
     private String database;
-    //database
+    //database  tableTempalte
     private Map<String,TableTemplate> tableTemplateMap = new HashMap<>();
 
     public  static ParseTemplate parse(Template template){

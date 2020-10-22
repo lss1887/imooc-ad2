@@ -6,12 +6,17 @@ import lombok.Data;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * event
+ */
 @Data
 public class BinlogRowData {
-
+        // private EventHeader header;
+        //    private EventData data;  EVENT
     private TableTemplate tableTemplate;
+    //操作类型
     private EventType eventType;
-    //列名 值
+    //map<列名 值>
     private List<Map<String,String>> after;
     private List<Map<String,String>> before;
 }

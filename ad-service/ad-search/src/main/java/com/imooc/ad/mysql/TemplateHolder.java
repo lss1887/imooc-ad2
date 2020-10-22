@@ -6,6 +6,7 @@ import com.imooc.ad.mysql.dto.ParseTemplate;
 import com.imooc.ad.mysql.dto.TableTemplate;
 import com.imooc.ad.mysql.dto.Template;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
@@ -21,6 +22,7 @@ import java.util.Map;
 public class TemplateHolder {
 
     private ParseTemplate template;
+    @Autowired
     private  JdbcTemplate jdbcTemplate;
     private  static  final String SQL_SCHEMA = "select table_schema,table_name,column_name,ordinal_position from information_schema.COLUMNS WHERE table_schema = ? and table_name = ?";
     private  static  final  String  TEMPLATE_JSON= "template.json";

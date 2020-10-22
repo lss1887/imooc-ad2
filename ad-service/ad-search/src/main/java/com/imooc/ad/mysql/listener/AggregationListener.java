@@ -14,11 +14,15 @@ import java.io.Serializable;
 import java.util.*;
 import java.util.stream.Collectors;
 
+/**
+ * 聚合收集mysql的binlog binlog只包换列的索引不包括列的名称
+ */
 @Slf4j
 @Component
 public class AggregationListener  implements BinaryLogClient.EventListener {
     private String dbName;
     private String tableName;
+    //表 监听方法
     private Map<String,IListener> listenerMap = new HashMap<>();
 
     @Autowired
@@ -32,6 +36,11 @@ public class AggregationListener  implements BinaryLogClient.EventListener {
         log.info("register:{} -{}",dbName,tableName);
         this.listenerMap.put(genkey(dbName,tableName),iListener);
     }
+
+    /**
+     * 将event 转化 rowData
+     * @param event
+     */
     @Override
     public void onEvent(Event event) {
         EventType type = event.getHeader().getEventType();
@@ -79,6 +88,7 @@ public class AggregationListener  implements BinaryLogClient.EventListener {
             return ((WriteRowsEventData) eventData).getRows();
         }
         if(eventData instanceof UpdateRowsEventData){
+            //更新的after数据
             return ((UpdateRowsEventData) eventData).getRows().stream()
                     .map(Map.Entry::getValue)
                     .collect(Collectors.toList());
@@ -95,6 +105,26 @@ public class AggregationListener  implements BinaryLogClient.EventListener {
             log.warn("table {} not found",tableName);
         }
         List<Map<String, String>> afterMapList = new ArrayList<>();
+        for (Serializable[] after : getAfterValues(eventData)) {
+           Map<String, String> afterMap = new HashMap<>(16);
+            int collen = after.length;
+            for (int ix = 0; ix < collen; ix++) {
+//                取出当前位置对应的列名
+                String colName = table.getPosMap().get(ix);
+                //如果没有说明不关心这个列
+                if(null == colName){
+                    log.debug("ignore position: {}",ix);
+                    continue;
+                }
+                String colValue = after[ix].toString();
+                afterMap.put(colName,colValue);
+
+            }
+            afterMapList.add(afterMap);
+        }
+        BinlogRowData rowData = new BinlogRowData();
+        rowData.setAfter(afterMapList);
+        rowData.setTableTemplate(table);
         return  null;
     }
 }
