@@ -19,7 +19,7 @@ public class SearchResponse {
     @Data
     @NoArgsConstructor
     @AllArgsConstructor
-    public static class Creative {
+    private static class Creative {
 
         private Long adId;
         private String adUrl;
