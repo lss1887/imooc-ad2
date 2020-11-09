@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+/**
+ * 应用程序开启启动的程序
+ */
 @Slf4j
 @Component
 public class BinlogRunner implements CommandLineRunner {
