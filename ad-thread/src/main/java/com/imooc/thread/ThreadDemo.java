@@ -4,6 +4,8 @@ public class ThreadDemo {
 
 
     public static void main(String[] args) {
+
+        //自定义线程1
         MyThread mt = new MyThread("myThread");
         mt.start();
 

@@ -8,7 +8,6 @@ public class MyThread  extends  Thread{
 
     @Override
     public void run() {
-
         System.out.println("执行run method()"+this.getName());
     }
 }

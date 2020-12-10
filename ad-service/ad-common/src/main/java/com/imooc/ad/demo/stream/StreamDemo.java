@@ -33,7 +33,7 @@ public class StreamDemo {
 
     //    双列集合先得到单列集合
     public static void doubleCollection() {
-        Map<String, String> map = new HashMap(5);
+        Map<String, String> map = new HashMap<>(5);
 
         Stream<String> stream = map.keySet().stream();
         Stream<String> stream1 = map.keySet().stream();
