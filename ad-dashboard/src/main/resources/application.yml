@@ -11,7 +11,6 @@ eureka:
       defaultZone: http://server1:8000/eureka/
 
 #    监控信息
-
 management:
   endpoints:
     web:

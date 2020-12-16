@@ -85,7 +85,7 @@ public class StreamDemo {
     public void skipStream() {
         Stream<String> original = Stream.of("林1", "林2", "林3");
         Stream<String> result = original.skip(2);
-        System.out.println(result.count()); //
+        System.out.println(result.count());
     }
 
 
