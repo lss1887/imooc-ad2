@@ -20,7 +20,7 @@ import java.util.List;
 @Component
 public class IncrementListener  implements IListener{
 
-    @Resource(name="")
+    @Resource(name="indexSender")
     private ISender sender;
 
     @Autowired

@@ -32,7 +32,7 @@ public class AggregationListener  implements BinaryLogClient.EventListener {
         return dbName+":"+tableName;
     }
 
-    private  void register(String dbName,String tableName,IListener iListener){
+    void register(String dbName, String tableName, IListener iListener){
         log.info("register:{} -{}",dbName,tableName);
         this.listenerMap.put(genkey(dbName,tableName),iListener);
     }

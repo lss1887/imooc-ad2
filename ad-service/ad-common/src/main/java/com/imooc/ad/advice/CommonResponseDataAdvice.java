@@ -53,7 +53,7 @@ public class CommonResponseDataAdvice implements ResponseBodyAdvice<Object> {
                                   ServerHttpRequest serverHttpRequest,
                                   ServerHttpResponse serverHttpResponse) {
 
-        CommonResponse<Object> commonResponse = new CommonResponse(0,"");
+        CommonResponse<Object> commonResponse = new CommonResponse<>(0,"");
 
         if(o == null){
             return  commonResponse;
